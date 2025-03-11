@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwn81863bwgte"]
+
+[ext_resource type="PackedScene" uid="uid://cjb3f5hmwawy" path="res://Bricks/BasicBrick/basic_brick.tscn" id="1_34ary"]
+[ext_resource type="Script" path="res://utils/childrenCheck.gd" id="1_vhcmk"]
+
+[node name="BasicFormation" type="Node2D"]
+script = ExtResource("1_vhcmk")
+
+[node name="BasicBrick" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(40, 30)
+
+[node name="BasicBrick2" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(123, 30)
+
+[node name="BasicBrick3" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(207, 30)
+
+[node name="BasicBrick4" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(291, 30)
+
+[node name="BasicBrick5" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(40, 93)
+
+[node name="BasicBrick6" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(123, 93)
+
+[node name="BasicBrick7" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(207, 93)
+
+[node name="BasicBrick8" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(291, 93)
+
+[node name="BasicBrick9" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(40, 155)
+
+[node name="BasicBrick10" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(123, 155)
+
+[node name="BasicBrick11" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(207, 155)
+
+[node name="BasicBrick12" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(291, 155)
+
+[node name="BasicBrick13" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(40, 217)
+
+[node name="BasicBrick14" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(123, 217)
+
+[node name="BasicBrick15" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(207, 217)
+
+[node name="BasicBrick16" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(291, 217)
+
+[node name="BasicBrick17" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(40, 279)
+
+[node name="BasicBrick18" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(123, 279)
+
+[node name="BasicBrick19" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(207, 279)
+
+[node name="BasicBrick20" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(291, 279)
+
+[node name="BasicBrick21" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(40, 341)
+
+[node name="BasicBrick22" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(123, 341)
+
+[node name="BasicBrick23" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(207, 341)
+
+[node name="BasicBrick24" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(291, 341)
+
+[node name="BasicBrick25" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(40, 403)
+
+[node name="BasicBrick26" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(123, 403)
+
+[node name="BasicBrick27" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(207, 403)
+
+[node name="BasicBrick28" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(291, 403)
+
+[node name="BasicBrick29" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(40, 465)
+
+[node name="BasicBrick30" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(123, 465)
+
+[node name="BasicBrick31" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(207, 465)
+
+[node name="BasicBrick32" parent="." instance=ExtResource("1_34ary")]
+position = Vector2(291, 465)

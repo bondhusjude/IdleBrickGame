@@ -1,0 +1,398 @@
+[gd_scene load_steps=12 format=3 uid="uid://b152rhwsqbhnb"]
+
+[ext_resource type="PackedScene" uid="uid://cvast3ww3rtfe" path="res://Ball/BasicBall/basic_ball.tscn" id="1_3t50l"]
+[ext_resource type="PackedScene" uid="uid://gri11maih0gc" path="res://Bricks/BrickFormations/Basic_Formation_6.tscn" id="2_aun4w"]
+[ext_resource type="Script" path="res://GameManager/BrickFormationMan/brickFormationMan.gd" id="2_jiuwj"]
+[ext_resource type="Script" path="res://GameManager/MainMan/GameUpdateMan.gd" id="3_802fw"]
+[ext_resource type="Texture2D" uid="uid://u716gwdjfey2" path="res://icon.svg" id="3_gv57q"]
+[ext_resource type="Script" path="res://UI/MainControl.gd" id="3_vcle5"]
+[ext_resource type="Resource" uid="uid://c5ktt6m1yrjxt" path="res://GameManager/MainMan/GameManager.tres" id="4_f61w4"]
+[ext_resource type="Script" path="res://UI/upgrades.gd" id="4_q33mv"]
+[ext_resource type="Resource" uid="uid://h8d7m1c7ycpr" path="res://Ball/BasicBall/basicBall.tres" id="5_6yf3o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tfvwg"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_xrbhn"]
+font_size = 70
+
+[node name="Main" type="Node2D"]
+
+[node name="Border" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Border"]
+scale = Vector2(0.323435, 1.06485)
+polygon = PackedVector2Array(-24.735, 180, 3345.34, 180, 3320.61, 1932.67, -9.27543, 1930.79, 0, 1881.95, 3212.39, 1881.95, 3212.39, 200, 234.978, 200, 250.437, 1886.65, 27.8263, 1881.96)
+
+[node name="BrickFormationMan" type="Node2D" parent="."]
+script = ExtResource("2_jiuwj")
+
+[node name="BasicFormationSixStack" parent="BrickFormationMan" instance=ExtResource("2_aun4w")]
+
+[node name="BallSpawn" type="Marker2D" parent="BrickFormationMan"]
+position = Vector2(552, 300)
+
+[node name="FullScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 2400.0
+script = ExtResource("3_vcle5")
+
+[node name="Top_UI" type="Panel" parent="FullScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.08
+offset_bottom = -1.52588e-05
+
+[node name="Money" type="Label" parent="FullScreen/Top_UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.707
+anchor_top = 0.302
+anchor_right = 0.884
+anchor_bottom = 0.661
+offset_left = 0.440002
+offset_top = 0.0159988
+offset_right = 0.279907
+offset_bottom = 0.0879974
+grow_horizontal = 2
+grow_vertical = 2
+text = "Money: "
+label_settings = SubResource("LabelSettings_tfvwg")
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="FullScreen/Top_UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.068
+anchor_top = 0.286
+anchor_right = 0.244
+anchor_bottom = 0.646
+offset_left = -0.440002
+offset_top = 0.0879974
+offset_right = 0.47998
+offset_bottom = -0.0320053
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level:  "
+label_settings = SubResource("LabelSettings_tfvwg")
+vertical_alignment = 1
+
+[node name="Bottom_UI" type="Panel" parent="FullScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.856
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.599854
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FullScreen/Bottom_UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_right = 0.161987
+
+[node name="Upgrades" type="Button" parent="FullScreen/Bottom_UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrades"
+
+[node name="Cards" type="Button" parent="FullScreen/Bottom_UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cards"
+
+[node name="Boosts" type="Button" parent="FullScreen/Bottom_UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Boosts"
+
+[node name="Cards" type="Panel" parent="FullScreen/Bottom_UI"]
+visible = false
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+offset_bottom = 8.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FullScreen/Bottom_UI/Cards"]
+layout_mode = 1
+offset_right = 317.0
+offset_bottom = 31.0
+
+[node name="allBallSpeed" type="Button" parent="FullScreen/Bottom_UI/Cards/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Speed"
+
+[node name="allBallDamage" type="Button" parent="FullScreen/Bottom_UI/Cards/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage"
+
+[node name="stageBonus" type="Button" parent="FullScreen/Bottom_UI/Cards/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "StageBonus"
+
+[node name="maxBalls" type="Button" parent="FullScreen/Bottom_UI/Cards/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MaxBalls"
+
+[node name="Boosts" type="Panel" parent="FullScreen/Bottom_UI"]
+visible = false
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+offset_bottom = 8.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FullScreen/Bottom_UI/Boosts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_right = 0.161987
+
+[node name="3xBallPower" type="Button" parent="FullScreen/Bottom_UI/Boosts/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3x Ball Power -30s"
+
+[node name="20_cash" type="Button" parent="FullScreen/Bottom_UI/Boosts/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "give 20% cash"
+
+[node name="doubleCash" type="Button" parent="FullScreen/Bottom_UI/Boosts/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DoubleCash"
+
+[node name="ExtraMenu" type="Panel" parent="FullScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.857
+offset_left = 1.0
+offset_top = -1.0
+offset_bottom = -0.800049
+
+[node name="Upgrades" type="Control" parent="FullScreen/ExtraMenu"]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.004
+offset_bottom = -0.42804
+
+[node name="Upgrades" type="ScrollContainer" parent="FullScreen/ExtraMenu/Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.208
+anchor_right = 1.0
+anchor_bottom = 1.004
+offset_top = -0.880005
+offset_right = 1.0
+offset_bottom = -1.44006
+mouse_filter = 0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("4_q33mv")
+basicBall = ExtResource("5_6yf3o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FullScreen/ExtraMenu/Upgrades/Upgrades"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="BasicBall" type="HBoxContainer" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_gv57q")
+
+[node name="plusBall" type="Button" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Power" type="Button" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Speed" type="Button" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="EmptyTemplate" type="HBoxContainer" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/EmptyTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_gv57q")
+
+[node name="Button2" type="Button" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/EmptyTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Button3" type="Button" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/EmptyTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Button4" type="Button" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/EmptyTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="EmptyTemplate1" type="HBoxContainer" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/EmptyTemplate1"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_gv57q")
+
+[node name="Button2" type="Button" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/EmptyTemplate1"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Button3" type="Button" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/EmptyTemplate1"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Button4" type="Button" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/EmptyTemplate1"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="EmptyTemplate2" type="HBoxContainer" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/EmptyTemplate2"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_gv57q")
+
+[node name="Button2" type="Button" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/EmptyTemplate2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Button3" type="Button" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/EmptyTemplate2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Button4" type="Button" parent="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/EmptyTemplate2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="BallLabel" type="Label" parent="FullScreen/ExtraMenu/Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.24
+anchor_bottom = 0.189
+offset_right = -0.960022
+offset_bottom = -0.540009
+text = "Ball"
+label_settings = SubResource("LabelSettings_xrbhn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="+BallLabel" type="Label" parent="FullScreen/ExtraMenu/Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.248
+anchor_top = 0.006
+anchor_right = 0.487
+anchor_bottom = 0.195
+offset_left = 0.40799
+offset_top = -0.16
+offset_right = -0.473022
+offset_bottom = -0.700012
+text = "+Ball"
+label_settings = SubResource("LabelSettings_xrbhn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PowerLabel" type="Label" parent="FullScreen/ExtraMenu/Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.505
+anchor_top = 0.009
+anchor_right = 0.744
+anchor_bottom = 0.198
+offset_left = 0.10498
+offset_top = 0.26
+offset_right = 0.223999
+offset_bottom = -0.280014
+text = "Power"
+label_settings = SubResource("LabelSettings_xrbhn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpeedLabel" type="Label" parent="FullScreen/ExtraMenu/Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.755
+anchor_top = 0.009
+anchor_right = 0.997
+anchor_bottom = 0.202
+offset_left = 0.354919
+offset_top = 0.26
+offset_right = 0.236938
+offset_bottom = 0.279999
+text = "Speed"
+label_settings = SubResource("LabelSettings_xrbhn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("3_802fw")
+gameMan = ExtResource("4_f61w4")
+
+[node name="BallMan" type="Node2D" parent="."]
+
+[node name="BasicBall" parent="BallMan" instance=ExtResource("1_3t50l")]
+position = Vector2(547, 1960)
+
+[connection signal="child_exiting_tree" from="BrickFormationMan" to="BrickFormationMan" method="_on_child_exiting_tree"]
+[connection signal="endLevel" from="BrickFormationMan" to="GameManager" method="_on_brick_formation_man_end_level"]
+[connection signal="pressed" from="FullScreen/Bottom_UI/HBoxContainer/Upgrades" to="FullScreen" method="_on_upgrades_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/plusBall" to="FullScreen/ExtraMenu/Upgrades/Upgrades" method="_on_plus_ball_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/Power" to="FullScreen/ExtraMenu/Upgrades/Upgrades" method="_on_power_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/Speed" to="FullScreen/ExtraMenu/Upgrades/Upgrades" method="_on_speed_pressed"]
