@@ -1,7 +1,7 @@
 extends Resource
 class_name Brick
 
-@export var health = 10
+@export var health = 1
 @export var brickTexture: Texture2D
 
 func healthAdd(add: int):

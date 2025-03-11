@@ -7,7 +7,11 @@ extends Area2D
 func _ready():
 	if brick:
 		brick = brick.duplicate(true)
+		gameMan.getLevel()
 		label.text = str(brick.getHealth())
+
+func calculate_health(base_cost: int, upgrades: int) -> int:
+	return int(base_cost * (upgrades + 1) * log(upgrades + 2))
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.get_class() == "CharacterBody2D":  # Alternative to `is Ball`

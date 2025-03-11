@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_qu8u4")
-damage = 9
+damage = 1
 speed = 500
