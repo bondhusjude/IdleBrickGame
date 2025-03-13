@@ -2,8 +2,9 @@ extends Node
 @export var gameMan: GameManager
 @onready var Main = $".."
 @onready var BallMan = Main.find_child("BallMan")
-@onready var moneyLabel: Label = Main.find_child("FullScreen").get_child(0).find_child("Money")
-@onready var levelLabel: Label = Main.find_child("FullScreen").get_child(0).find_child("Level")
+@onready var moneyLabel: Label = $"../FullScreen/Top_UI/VBoxContainer/Money"
+@onready var crystalLabel: Label = $"../FullScreen/Top_UI/VBoxContainer/Crystal"
+@onready var levelLabel: Label = $"../FullScreen/Top_UI/CenterContainer/Level"
 @export var pathOfFolder = "res://Bricks/BrickFormations/"
 @export var scene_count: int
 @export var scene_files = []  # List to store scene filenames
@@ -14,8 +15,9 @@ func _ready():
 		scene_count = scene_files.size()  # Set scene count based on the number of files
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	moneyLabel.text = "Money: " + str(gameMan.getMoney())
+	crystalLabel.text = "Crystal: " + str(gameMan.getCrystal())
 	levelLabel.text = "Level: " + str(gameMan.getLevel())
 
 func spawnBall(newBall: String):

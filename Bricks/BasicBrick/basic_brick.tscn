@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjb3f5hmwawy"]
+[gd_scene load_steps=6 format=3 uid="uid://cjb3f5hmwawy"]
 
 [ext_resource type="Script" path="res://Bricks/BasicBrick/BasicBrick.gd" id="1_8sjvx"]
 [ext_resource type="Resource" uid="uid://coyktmwqehv7d" path="res://Bricks/BasicBrick/basicBrick.tres" id="2_7j73s"]
@@ -9,9 +9,6 @@ size = Vector2(80, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eod48"]
 size = Vector2(76, 58)
-
-[sub_resource type="LabelSettings" id="LabelSettings_yl80c"]
-font_size = 40
 
 [node name="BasicBrick" type="Area2D"]
 collision_mask = 18
@@ -35,7 +32,6 @@ offset_top = -28.0
 offset_right = 38.0
 offset_bottom = 29.0
 text = "00"
-label_settings = SubResource("LabelSettings_yl80c")
 horizontal_alignment = 1
 vertical_alignment = 1
 

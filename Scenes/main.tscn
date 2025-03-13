@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b152rhwsqbhnb"]
+[gd_scene load_steps=15 format=3 uid="uid://b152rhwsqbhnb"]
 
 [ext_resource type="PackedScene" uid="uid://cvast3ww3rtfe" path="res://Ball/BasicBall/basic_ball.tscn" id="1_3t50l"]
 [ext_resource type="PackedScene" uid="uid://gri11maih0gc" path="res://Bricks/BrickFormations/Basic_Formation_6.tscn" id="2_aun4w"]
@@ -18,6 +18,12 @@ font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_xrbhn"]
 font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_sefct"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_do6o2"]
+font_size = 80
 
 [node name="Main" type="Node2D"]
 
@@ -49,38 +55,43 @@ anchor_right = 1.0
 anchor_bottom = 0.08
 offset_bottom = -1.52588e-05
 
-[node name="Money" type="Label" parent="FullScreen/Top_UI"]
+[node name="CenterContainer" type="CenterContainer" parent="FullScreen/Top_UI"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.707
-anchor_top = 0.302
-anchor_right = 0.884
-anchor_bottom = 0.661
-offset_left = 0.440002
-offset_top = 0.0159988
-offset_right = 0.279907
-offset_bottom = 0.0879974
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Money: "
+
+[node name="Level" type="Label" parent="FullScreen/Top_UI/CenterContainer"]
+layout_mode = 2
+text = "Level:  "
 label_settings = SubResource("LabelSettings_tfvwg")
 vertical_alignment = 1
 
-[node name="Level" type="Label" parent="FullScreen/Top_UI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="FullScreen/Top_UI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.068
-anchor_top = 0.286
-anchor_right = 0.244
-anchor_bottom = 0.646
-offset_left = -0.440002
-offset_top = 0.0879974
-offset_right = 0.47998
-offset_bottom = -0.0320053
-grow_horizontal = 2
-grow_vertical = 2
-text = "Level:  "
+anchor_right = 0.232
+anchor_bottom = 1.0
+offset_right = 0.439987
+offset_bottom = 1.52588e-05
+alignment = 1
+
+[node name="Money" type="Label" parent="FullScreen/Top_UI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Money: "
 label_settings = SubResource("LabelSettings_tfvwg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Crystal" type="Label" parent="FullScreen/Top_UI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Crystal: "
+label_settings = SubResource("LabelSettings_tfvwg")
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Bottom_UI" type="Panel" parent="FullScreen"]
@@ -178,10 +189,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "DoubleCash"
 
-[node name="ExtraMenu" type="Panel" parent="FullScreen"]
+[node name="ExtraMenu" type="Control" parent="FullScreen"]
 visible = false
 layout_mode = 1
-anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.857
@@ -189,8 +199,10 @@ offset_left = 1.0
 offset_top = -1.0
 offset_bottom = -0.800049
 
-[node name="Upgrades" type="Control" parent="FullScreen/ExtraMenu"]
+[node name="Upgrades" type="Panel" parent="FullScreen/ExtraMenu"]
+visible = false
 layout_mode = 1
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.004
 offset_bottom = -0.42804
@@ -565,6 +577,247 @@ label_settings = SubResource("LabelSettings_xrbhn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Cards" type="Panel" parent="FullScreen/ExtraMenu"]
+visible = false
+layout_mode = 2
+anchor_top = -1.174
+anchor_right = 1.003
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 0.118042
+offset_right = -0.237061
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActiveCards" type="ScrollContainer" parent="FullScreen/ExtraMenu/Cards"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.208
+offset_right = -4.0
+offset_bottom = -0.503998
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FullScreen/ExtraMenu/Cards/ActiveCards"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button2" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button3" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/Button3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button4" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/Button4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button5" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/Button5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button6" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/Button6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryLabelPanel" type="Panel" parent="FullScreen/ExtraMenu/Cards"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.207
+anchor_right = 0.994
+anchor_bottom = 0.342
+offset_left = -1.0
+offset_top = 0.393982
+offset_right = 0.432007
+offset_bottom = 0.564026
+
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/InventoryLabelPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Inventory"
+label_settings = SubResource("LabelSettings_sefct")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardsAvailable" type="ScrollContainer" parent="FullScreen/ExtraMenu/Cards"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.343
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.294067
+offset_right = -6.0
+offset_bottom = -5.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FullScreen/ExtraMenu/Cards/CardsAvailable"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Button2" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Button3" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Button2" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Button3" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Button2" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Button3" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Boosts" type="Panel" parent="FullScreen/ExtraMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.999
+anchor_bottom = 1.0
+offset_right = 0.0789795
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FullScreen/ExtraMenu/Boosts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.142
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.306
+
+[node name="Panel" type="Panel" parent="FullScreen/ExtraMenu/Boosts/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Boosts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.142
+offset_bottom = 0.306
+text = "Boosts"
+label_settings = SubResource("LabelSettings_do6o2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("3_802fw")
 gameMan = ExtResource("4_f61w4")
@@ -574,9 +827,29 @@ gameMan = ExtResource("4_f61w4")
 [node name="BasicBall" parent="BallMan" instance=ExtResource("1_3t50l")]
 position = Vector2(547, 1960)
 
+[node name="BasicBall2" parent="BallMan" instance=ExtResource("1_3t50l")]
+position = Vector2(547, 1960)
+
+[node name="BasicBall3" parent="BallMan" instance=ExtResource("1_3t50l")]
+position = Vector2(547, 1960)
+
+[node name="BasicBall4" parent="BallMan" instance=ExtResource("1_3t50l")]
+position = Vector2(547, 1960)
+
+[node name="BasicBall5" parent="BallMan" instance=ExtResource("1_3t50l")]
+position = Vector2(547, 1960)
+
+[node name="BasicBall6" parent="BallMan" instance=ExtResource("1_3t50l")]
+position = Vector2(547, 1960)
+
+[node name="BasicBall7" parent="BallMan" instance=ExtResource("1_3t50l")]
+position = Vector2(547, 1960)
+
 [connection signal="child_exiting_tree" from="BrickFormationMan" to="BrickFormationMan" method="_on_child_exiting_tree"]
 [connection signal="endLevel" from="BrickFormationMan" to="GameManager" method="_on_brick_formation_man_end_level"]
 [connection signal="pressed" from="FullScreen/Bottom_UI/HBoxContainer/Upgrades" to="FullScreen" method="_on_upgrades_pressed"]
+[connection signal="pressed" from="FullScreen/Bottom_UI/HBoxContainer/Cards" to="FullScreen" method="_on_cards_pressed"]
+[connection signal="pressed" from="FullScreen/Bottom_UI/HBoxContainer/Boosts" to="FullScreen" method="_on_boosts_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/plusBall" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_plus_ball_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/Power" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_power_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/Speed" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_speed_pressed"]
