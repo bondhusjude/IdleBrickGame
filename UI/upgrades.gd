@@ -10,9 +10,9 @@ extends Control
 @onready var plusLabel = (basicBall.get_child(1)).get_child(0)
 
 # Base costs for each upgrade
-var base_cost_power: int = 50
-var base_cost_speed: int = 30
-var base_cost_ball: int = 100
+var base_cost_power: int = 5
+var base_cost_speed: int = 3
+var base_cost_ball: int = 10
 
 # Upgrade counters
 var power_upgrades: int = 1

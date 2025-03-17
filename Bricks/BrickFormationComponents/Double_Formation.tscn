@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceq2h0nvytkqb"]
+
+[ext_resource type="Script" path="res://utils/childrenCheck.gd" id="1_3tpoj"]
+[ext_resource type="PackedScene" uid="uid://cr4wkulsnt864" path="res://Bricks/BasicBrick/basic_hexagon.tscn" id="2_xi8ep"]
+
+[node name="BasicFormation" type="Node2D"]
+script = ExtResource("1_3tpoj")
+
+[node name="BasicHexagon" parent="." instance=ExtResource("2_xi8ep")]
+position = Vector2(40, 325)
+
+[node name="BasicHexagon2" parent="." instance=ExtResource("2_xi8ep")]
+position = Vector2(291, 325)
+
+[node name="BasicHexagon3" parent="." instance=ExtResource("2_xi8ep")]
+position = Vector2(39, 125)
+
+[node name="BasicHexagon4" parent="." instance=ExtResource("2_xi8ep")]
+position = Vector2(290, 125)

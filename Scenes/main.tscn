@@ -789,6 +789,7 @@ size_flags_horizontal = 3
 mouse_filter = 1
 
 [node name="Boosts" type="Panel" parent="FullScreen/ExtraMenu"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.999
@@ -825,24 +826,6 @@ gameMan = ExtResource("4_f61w4")
 [node name="BallMan" type="Node2D" parent="."]
 
 [node name="BasicBall" parent="BallMan" instance=ExtResource("1_3t50l")]
-position = Vector2(547, 1960)
-
-[node name="BasicBall2" parent="BallMan" instance=ExtResource("1_3t50l")]
-position = Vector2(547, 1960)
-
-[node name="BasicBall3" parent="BallMan" instance=ExtResource("1_3t50l")]
-position = Vector2(547, 1960)
-
-[node name="BasicBall4" parent="BallMan" instance=ExtResource("1_3t50l")]
-position = Vector2(547, 1960)
-
-[node name="BasicBall5" parent="BallMan" instance=ExtResource("1_3t50l")]
-position = Vector2(547, 1960)
-
-[node name="BasicBall6" parent="BallMan" instance=ExtResource("1_3t50l")]
-position = Vector2(547, 1960)
-
-[node name="BasicBall7" parent="BallMan" instance=ExtResource("1_3t50l")]
 position = Vector2(547, 1960)
 
 [connection signal="child_exiting_tree" from="BrickFormationMan" to="BrickFormationMan" method="_on_child_exiting_tree"]

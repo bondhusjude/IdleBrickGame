@@ -1,5 +1,6 @@
 extends Area2D
 @export var brick: Brick
+@export var amIHex: bool = false
 @onready var statBody = $StaticBody2D
 @onready var label = $Label
 @export var gameMan: GameManager
@@ -20,7 +21,10 @@ func _ready():
 		label.text = str(brick.getHealth())
 
 func calculate_health(base: int, level: int) -> int:
-	return int(base * (level + 1) * log(level + 2))
+	if amIHex:
+		return 2 * int(base * (level + 1) * log(level + 2))
+	else:
+		return int(base * (level + 1) * log(level + 2))
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.get_class() == "CharacterBody2D":  # Alternative to `is Ball`

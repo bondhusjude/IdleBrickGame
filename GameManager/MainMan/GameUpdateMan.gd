@@ -35,7 +35,7 @@ func _on_brick_formation_man_end_level() -> void:
 		var child = BallMan.get_child(ball)
 		child.global_position = ballSpawn.global_position
 	#spawn new brick formatino under BrickFormationMan
-	loadScene(pathOfFolder, randi_range(0, (1 - scene_count)))
+	loadScene(pathOfFolder, randi_range(0, scene_count - 1))
 
 # Load the scene dynamically
 func loadScene(path: String, numberChoosen: int):

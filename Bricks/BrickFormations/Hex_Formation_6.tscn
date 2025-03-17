@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8o846ifc8qu8"]
+
+[ext_resource type="Script" path="res://utils/childrenCheck.gd" id="1_ljd0x"]
+[ext_resource type="PackedScene" uid="uid://dwn81863bwgte" path="res://Bricks/BrickFormationComponents/Basic_Formation.tscn" id="2_1b3en"]
+[ext_resource type="PackedScene" uid="uid://ceq2h0nvytkqb" path="res://Bricks/BrickFormationComponents/Double_Formation.tscn" id="3_bbwf6"]
+
+[node name="BasicFormationSixStack" type="Node2D"]
+script = ExtResource("1_ljd0x")
+
+[node name="BasicFormation3" parent="." instance=ExtResource("2_1b3en")]
+position = Vector2(179, 933)
+
+[node name="BasicFormation4" parent="." instance=ExtResource("2_1b3en")]
+position = Vector2(585, 933)
+
+[node name="BasicFormation5" parent="." instance=ExtResource("3_bbwf6")]
+position = Vector2(384, 1399)
+
+[node name="BasicFormation6" parent="." instance=ExtResource("3_bbwf6")]
+position = Vector2(384, 524)
