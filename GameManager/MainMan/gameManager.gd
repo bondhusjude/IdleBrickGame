@@ -64,7 +64,7 @@ func getGoldBrick() -> float:
 
 # Setter and Getter for crystal_brick_chance
 func setCrystalBrick(value: float):
-	push_error("I Was Called")
+	#push_error("I Was Called")
 	_crystal_brick_chance = value
 
 func getCrystalBrick() -> float:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b152rhwsqbhnb"]
+[gd_scene load_steps=16 format=3 uid="uid://b152rhwsqbhnb"]
 
 [ext_resource type="PackedScene" uid="uid://cvast3ww3rtfe" path="res://Ball/BasicBall/basic_ball.tscn" id="1_3t50l"]
 [ext_resource type="PackedScene" uid="uid://gri11maih0gc" path="res://Bricks/BrickFormations/Basic_Formation_6.tscn" id="2_aun4w"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://c5ktt6m1yrjxt" path="res://GameManager/MainMan/GameManager.tres" id="4_f61w4"]
 [ext_resource type="Script" path="res://UI/upgrades.gd" id="4_q33mv"]
 [ext_resource type="Resource" uid="uid://h8d7m1c7ycpr" path="res://Ball/BasicBall/basicBall.tres" id="5_6yf3o"]
+[ext_resource type="Script" path="res://UI/boosts.gd" id="8_dvf2u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tfvwg"]
 font_size = 50
@@ -795,18 +796,47 @@ anchors_preset = -1
 anchor_right = 0.999
 anchor_bottom = 1.0
 offset_right = 0.0789795
+script = ExtResource("8_dvf2u")
+ball_base = ExtResource("5_6yf3o")
+GameManClass = ExtResource("4_f61w4")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="FullScreen/ExtraMenu/Boosts"]
+[node name="VBoxContainer" type="VBoxContainer" parent="FullScreen/ExtraMenu/Boosts"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.142
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 0.306
+anchor_top = 0.158
+anchor_right = 1.001
+anchor_bottom = 0.999
+offset_top = -0.406006
+offset_right = -0.0780029
+offset_bottom = -0.143066
 
-[node name="Panel" type="Panel" parent="FullScreen/ExtraMenu/Boosts/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="FullScreen/ExtraMenu/Boosts/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DoubleDamage" type="Button" parent="FullScreen/ExtraMenu/Boosts/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+text = "Double Damage"
+
+[node name="DoubleSpeed" type="Button" parent="FullScreen/ExtraMenu/Boosts/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Double Speed"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="FullScreen/ExtraMenu/Boosts/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DoubleCash" type="Button" parent="FullScreen/ExtraMenu/Boosts/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Double Cash"
+
+[node name="SkipLevel" type="Button" parent="FullScreen/ExtraMenu/Boosts/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Skip  Level"
 
 [node name="Label" type="Label" parent="FullScreen/ExtraMenu/Boosts"]
 layout_mode = 1
@@ -836,3 +866,7 @@ position = Vector2(547, 1960)
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/plusBall" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_plus_ball_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/Power" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_power_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/Speed" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_speed_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Boosts/VBoxContainer/HBoxContainer/DoubleDamage" to="FullScreen/ExtraMenu/Boosts" method="_on_double_damage_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Boosts/VBoxContainer/HBoxContainer/DoubleSpeed" to="FullScreen/ExtraMenu/Boosts" method="_on_double_speed_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Boosts/VBoxContainer/HBoxContainer2/DoubleCash" to="FullScreen/ExtraMenu/Boosts" method="_on_double_cash_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Boosts/VBoxContainer/HBoxContainer2/SkipLevel" to="FullScreen/ExtraMenu/Boosts" method="_on_skip_level_pressed"]

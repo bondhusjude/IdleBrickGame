@@ -28,13 +28,17 @@ func spawnBall(newBall: String):
 
 # Called when the end of the level happens
 func _on_brick_formation_man_end_level() -> void:
+	moveNextLevel()
+
+func moveNextLevel():
 	# add 1 to level count
 	gameMan.addLevel()
-	##TODO fix movement of balls so that they dont break half of the level when they are moved 
 	for ball in BallMan.get_child_count():
 		var child = BallMan.get_child(ball)
 		child.global_position = ballSpawn.global_position
 	#spawn new brick formatino under BrickFormationMan
+	# Wait for 0.1 seconds (100 milliseconds)
+	await get_tree().create_timer(0.1).timeout
 	loadScene(pathOfFolder, randi_range(0, scene_count - 1))
 
 # Load the scene dynamically
