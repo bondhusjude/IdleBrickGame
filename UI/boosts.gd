@@ -9,23 +9,32 @@ func canPay(price: int) -> bool:
 		return true
 	return false
 
+## TODO set values to be real price in files
+
 func _on_double_damage_pressed() -> void:
 	if canPay(1):
 		GameManClass.removeCrystal(1)
-		ball_base.doubleDamage == true
-		await get_tree().create_timer(30).timeout
-		ball_base.doubleDamage == false
+		ball_base.setDoubleDamage(true)
+		var timer = get_tree().create_timer(30)
+		timer.timeout.connect(_on_dd_timer_timeout)
+
 	else:
 		print("Cannot Pay for Item")
+
+func _on_dd_timer_timeout() -> void:
+	ball_base.setDoubleDamage(false)
 
 func _on_double_speed_pressed() -> void:
 	if canPay(1):
 		GameManClass.removeCrystal(1)
-		ball_base.doubleSpeed == true
-		await get_tree().create_timer(30).timeout
-		ball_base.doubleSpeed == false
+		ball_base.setDoubleSpeed(true)
+		var timer = get_tree().create_timer(30)
+		timer.timeout.connect(_on_ds_timer_timeout)
 	else:
 		print("Cannot Pay for Item")
+
+func _on_ds_timer_timeout() -> void:
+	ball_base.setDoubleSpeed(false)
 
 func _on_double_cash_pressed() -> void:
 	if canPay(1):

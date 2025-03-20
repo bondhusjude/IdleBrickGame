@@ -7,6 +7,18 @@ class_name Ball
 @export var doubleDamage: bool
 @export var doubleSpeed: bool
 
+func setDoubleDamage(i: bool):
+	doubleDamage = i
+
+func getDoubleDamage() -> bool:
+	return doubleDamage
+
+func setDoubleSpeed(i: bool):
+	doubleSpeed = i
+
+func getDoubleSpeed() -> bool:
+	return doubleSpeed
+
 func setDamage(i: int):
 	damage = i
 

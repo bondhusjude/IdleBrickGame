@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b152rhwsqbhnb"]
+[gd_scene load_steps=17 format=3 uid="uid://b152rhwsqbhnb"]
 
 [ext_resource type="PackedScene" uid="uid://cvast3ww3rtfe" path="res://Ball/BasicBall/basic_ball.tscn" id="1_3t50l"]
 [ext_resource type="PackedScene" uid="uid://gri11maih0gc" path="res://Bricks/BrickFormations/Basic_Formation_6.tscn" id="2_aun4w"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://c5ktt6m1yrjxt" path="res://GameManager/MainMan/GameManager.tres" id="4_f61w4"]
 [ext_resource type="Script" path="res://UI/upgrades.gd" id="4_q33mv"]
 [ext_resource type="Resource" uid="uid://h8d7m1c7ycpr" path="res://Ball/BasicBall/basicBall.tres" id="5_6yf3o"]
+[ext_resource type="Script" path="res://UI/cards.gd" id="8_8icbw"]
 [ext_resource type="Script" path="res://UI/boosts.gd" id="8_dvf2u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tfvwg"]
@@ -191,7 +192,6 @@ size_flags_horizontal = 3
 text = "DoubleCash"
 
 [node name="ExtraMenu" type="Control" parent="FullScreen"]
-visible = false
 layout_mode = 1
 anchor_top = 0.5
 anchor_right = 1.0
@@ -579,7 +579,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Cards" type="Panel" parent="FullScreen/ExtraMenu"]
-visible = false
 layout_mode = 2
 anchor_top = -1.174
 anchor_right = 1.003
@@ -589,6 +588,7 @@ offset_top = 0.118042
 offset_right = -0.237061
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("8_8icbw")
 
 [node name="ActiveCards" type="ScrollContainer" parent="FullScreen/ExtraMenu/Cards"]
 layout_mode = 1
@@ -605,13 +605,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+[node name="ActiveButton" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/Button"]
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -619,13 +619,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button2" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+[node name="ActiveButton2" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/Button2"]
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -633,13 +633,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button3" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+[node name="ActiveButton3" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/Button3"]
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -647,13 +647,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button4" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+[node name="ActiveButton4" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/Button4"]
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -661,13 +661,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button5" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+[node name="ActiveButton5" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/Button5"]
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton5"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -675,13 +675,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button6" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+[node name="ActiveButton6" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/Button6"]
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton6"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -734,17 +734,17 @@ custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer"]
+[node name="BallSpeed" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
-[node name="Button2" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer"]
+[node name="BallPower" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
-[node name="Button3" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer"]
+[node name="BrickCash" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -754,17 +754,17 @@ custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2"]
+[node name="StageBonus" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
-[node name="Button2" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2"]
+[node name="MaxBalls" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
-[node name="Button3" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2"]
+[node name="StageSkip" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -774,17 +774,17 @@ custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3"]
+[node name="GoldBrickChance" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
-[node name="Button2" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3"]
+[node name="GoldBrickBonus" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
-[node name="Button3" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3"]
+[node name="Laser" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -866,6 +866,15 @@ position = Vector2(547, 1960)
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/plusBall" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_plus_ball_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/Power" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_power_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/Speed" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_speed_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer/BallSpeed" to="FullScreen/ExtraMenu/Cards" method="_on_ball_speed_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer/BallPower" to="FullScreen/ExtraMenu/Cards" method="_on_ball_power_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer/BrickCash" to="FullScreen/ExtraMenu/Cards" method="_on_brick_cash_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2/StageBonus" to="FullScreen/ExtraMenu/Cards" method="_on_stage_bonus_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2/MaxBalls" to="FullScreen/ExtraMenu/Cards" method="_on_max_balls_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2/StageSkip" to="FullScreen/ExtraMenu/Cards" method="_on_stage_skip_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3/GoldBrickChance" to="FullScreen/ExtraMenu/Cards" method="_on_gold_brick_chance_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3/GoldBrickBonus" to="FullScreen/ExtraMenu/Cards" method="_on_gold_brick_bonus_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3/Laser" to="FullScreen/ExtraMenu/Cards" method="_on_laser_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Boosts/VBoxContainer/HBoxContainer/DoubleDamage" to="FullScreen/ExtraMenu/Boosts" method="_on_double_damage_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Boosts/VBoxContainer/HBoxContainer/DoubleSpeed" to="FullScreen/ExtraMenu/Boosts" method="_on_double_speed_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Boosts/VBoxContainer/HBoxContainer2/DoubleCash" to="FullScreen/ExtraMenu/Boosts" method="_on_double_cash_pressed"]
