@@ -1,9 +1,9 @@
 extends CharacterBody2D
 @export var ball: Ball
-var damage = 0
 # Direction of movement (normalized vector)
 var direction: Vector2 = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
-
+# damage is necasary so we can call damage in the script BasicBrick.gd
+var damage
 func _physics_process(delta: float) -> void:
 	# Calculate the movement vector
 	var _velocity: Vector2 = direction * ball.getSpeed()

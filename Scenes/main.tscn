@@ -605,19 +605,29 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ActiveButton" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
+[node name="ActiveButton1" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton"]
+[node name="TextureRect" type="TextureRect" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ActiveButton2" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -633,6 +643,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ActiveButton3" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -646,6 +666,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ActiveButton4" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -661,6 +691,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ActiveButton5" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -675,6 +715,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ActiveButton6" type="Button" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -688,6 +738,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="InventoryLabelPanel" type="Panel" parent="FullScreen/ExtraMenu/Cards"]
 layout_mode = 1
@@ -866,6 +926,12 @@ position = Vector2(547, 1960)
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/plusBall" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_plus_ball_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/Power" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_power_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/Speed" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_speed_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton1" to="FullScreen/ExtraMenu/Cards" method="_on_active_button_1_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton2" to="FullScreen/ExtraMenu/Cards" method="_on_active_button_2_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton3" to="FullScreen/ExtraMenu/Cards" method="_on_active_button_3_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton4" to="FullScreen/ExtraMenu/Cards" method="_on_active_button_4_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton5" to="FullScreen/ExtraMenu/Cards" method="_on_active_button_5_pressed"]
+[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton6" to="FullScreen/ExtraMenu/Cards" method="_on_active_button_6_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer/BallSpeed" to="FullScreen/ExtraMenu/Cards" method="_on_ball_speed_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer/BallPower" to="FullScreen/ExtraMenu/Cards" method="_on_ball_power_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer/BrickCash" to="FullScreen/ExtraMenu/Cards" method="_on_brick_cash_pressed"]
