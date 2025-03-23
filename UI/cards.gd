@@ -14,19 +14,35 @@ enum State { LOCKED, UNLOCKED }
 @export var usable = []
 
 func _ready() -> void:
+	activebutton1.pressed.connect(on_active_button_pressed.bind(0))
+	activebutton2.pressed.connect(on_active_button_pressed.bind(1))
+	activebutton3.pressed.connect(on_active_button_pressed.bind(2))
+	activebutton4.pressed.connect(on_active_button_pressed.bind(3))
+	activebutton5.pressed.connect(on_active_button_pressed.bind(4))
+	activebutton6.pressed.connect(on_active_button_pressed.bind(5))
+	
 	usable = [
-		{"state": State.UNLOCKED, "object": activebutton1, "empty": "y"},
-		{"state": State.LOCKED, "object": activebutton2, "empty": "y"},
-		{"state": State.LOCKED, "object": activebutton3, "empty": "y"},
-		{"state": State.LOCKED, "object": activebutton4, "empty": "y"},
-		{"state": State.LOCKED, "object": activebutton5, "empty": "y"},
-		{"state": State.LOCKED, "object": activebutton6, "empty": "y"},
+		{"state": State.LOCKED, "object": activebutton1, "empty": true, "effect": null},
+		{"state": State.LOCKED, "object": activebutton2, "empty": true, "effect": null},
+		{"state": State.LOCKED, "object": activebutton3, "empty": true, "effect": null},
+		{"state": State.LOCKED, "object": activebutton4, "empty": true, "effect": null},
+		{"state": State.LOCKED, "object": activebutton5, "empty": true, "effect": null},
+		{"state": State.LOCKED, "object": activebutton6, "empty": true, "effect": null},
 	]
 
 func _process(_delta: float) -> void:
 	for i in usable:
-		#update labels inside the buttons so that we know if they are unclocked or not
-		i.get("object").find_child("Label").text = State.keys()[i.get("state")]
+		var label = i.get("object").find_child("Label")
+		if label:
+			var effect_name = "None"
+			if i.get("effect"):
+				var effect_str = str(i.get("effect"))
+				var parts = effect_str.split("::")
+				if parts.size() > 1:
+					effect_name = parts[1]  # Extract function name
+			label.text = State.keys()[i.get("state")] + "\n" + effect_name
+		if not i.get("empty") and i.get("effect"):
+			i.get("effect").call()
 
 func unlockSlot(obj: Button):
 	for i in usable: 
@@ -36,79 +52,86 @@ func unlockSlot(obj: Button):
 			return
 	push_error("Button not found:", obj.name)
 
-func _on_ball_speed_pressed() -> void:
-	pass # Replace with function body.
+func canPay(price: int) -> bool:
+	return gameMan.getCrystal() >= price
 
+func on_active_button_pressed(index: int) -> void:
+	if usable[index]["state"] == State.UNLOCKED:
+		usable[index]["state"] = State.UNLOCKED
+		usable[index]["empty"] = true
+		usable[index]["effect"] = null
+	else:
+		#index is a parrelle array to the index of the button that is pressed, 
+		##first button price is 0 index
+		var price = [1, 1, 1, 1, 1, 1][index]
+		if canPay(price):
+			gameMan.removeCrystal(price)
+			usable[index]["state"] = State.UNLOCKED
+			usable[index]["empty"] = true
+		else:
+			print("Can't Pay")
+
+func checkForOpening(function):
+	for i in usable:
+		if i["state"] == State.UNLOCKED and i["empty"] == true:
+			i["effect"] = function
+			i["empty"] = false
+			print("Effect applied to slot:", i.get("object").name)
+			return
+	print("No unlocked and empty slots available.")
+
+func _on_ball_speed_pressed() -> void:
+	checkForOpening(ballSpeedFunction)
 
 func _on_ball_power_pressed() -> void:
-	pass # Replace with function body.
-
+	checkForOpening(ballPowerFunction)
 
 func _on_brick_cash_pressed() -> void:
-	pass # Replace with function body.
-
+	checkForOpening(stageBonusFunction)
 
 func _on_stage_bonus_pressed() -> void:
-	pass # Replace with function body.
-
+	checkForOpening(stageBonusFunction)
 
 func _on_max_balls_pressed() -> void:
-	pass # Replace with function body.
-
+	checkForOpening(maxBallsFunction)
 
 func _on_stage_skip_pressed() -> void:
-	pass # Replace with function body.
-
+	checkForOpening(stageSkipFunction)
 
 func _on_gold_brick_chance_pressed() -> void:
-	pass # Replace with function body.
-
+	checkForOpening(goldBrickChanceFunction)
 
 func _on_gold_brick_bonus_pressed() -> void:
-	pass # Replace with function body.
-
+	checkForOpening(goldBrickBonusFunction)
 
 func _on_laser_pressed() -> void:
-	pass # Replace with function body.
+	checkForOpening(laserFunction)
 
 
-func _on_active_button_1_pressed() -> void:
-	if usable[0]["state"] == State.UNLOCKED:
-		pass
-	else:
-		pass
+## TODO Need to finish implementing the rest of the cards
+func ballSpeedFunction():
+	pass
 
+func ballPowerFunction():
+	pass
 
-func _on_active_button_2_pressed() -> void:
-	if usable[1]["state"] == State.UNLOCKED:
-		pass
-	else:
-		pass
+func brickCashFunction():
+	pass
 
+func stageBonusFunction():
+	pass
 
-func _on_active_button_3_pressed() -> void:
-	if usable[2]["state"] == State.UNLOCKED:
-		pass
-	else:
-		pass
+func maxBallsFunction():
+	pass
 
+func stageSkipFunction():
+	pass
 
-func _on_active_button_4_pressed() -> void:
-	if usable[3]["state"] == State.UNLOCKED:
-		pass
-	else:
-		pass
+func goldBrickChanceFunction():
+	pass
 
+func goldBrickBonusFunction():
+	pass
 
-func _on_active_button_5_pressed() -> void:
-	if usable[4]["state"] == State.UNLOCKED:
-		pass
-	else:
-		pass
-
-
-func _on_active_button_6_pressed() -> void:
-	if usable[5]["state"] == State.UNLOCKED:
-		pass
-	else:
-		pass
+func laserFunction():
+	pass

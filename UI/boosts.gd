@@ -5,9 +5,7 @@ extends Node
 @onready var GameMan = $"../../../GameManager"
 
 func canPay(price: int) -> bool:
-	if price >= GameManClass.getCrystal():
-		return true
-	return false
+	return GameManClass.getCrystal() >= price
 
 ## TODO set values to be real price in files
 

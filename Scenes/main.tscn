@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b152rhwsqbhnb"]
+[gd_scene load_steps=24 format=3 uid="uid://b152rhwsqbhnb"]
 
 [ext_resource type="PackedScene" uid="uid://cvast3ww3rtfe" path="res://Ball/BasicBall/basic_ball.tscn" id="1_3t50l"]
 [ext_resource type="PackedScene" uid="uid://gri11maih0gc" path="res://Bricks/BrickFormations/Basic_Formation_6.tscn" id="2_aun4w"]
@@ -21,8 +21,29 @@ font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_xrbhn"]
 font_size = 70
 
+[sub_resource type="LabelSettings" id="LabelSettings_766su"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbflt"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_krlvm"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_eoy0r"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_pmnvg"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_a2b4h"]
+font_size = 30
+
 [sub_resource type="LabelSettings" id="LabelSettings_sefct"]
 font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_8qxd8"]
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_do6o2"]
 font_size = 80
@@ -589,6 +610,8 @@ offset_right = -0.237061
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("8_8icbw")
+gameMan = ExtResource("4_f61w4")
+ball = ExtResource("5_6yf3o")
 
 [node name="ActiveCards" type="ScrollContainer" parent="FullScreen/ExtraMenu/Cards"]
 layout_mode = 1
@@ -626,6 +649,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = SubResource("LabelSettings_766su")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -650,6 +674,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = SubResource("LabelSettings_kbflt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -674,6 +699,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = SubResource("LabelSettings_krlvm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -698,6 +724,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = SubResource("LabelSettings_eoy0r")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -722,6 +749,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = SubResource("LabelSettings_pmnvg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -746,6 +774,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = SubResource("LabelSettings_a2b4h")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -799,15 +828,51 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer/BallSpeed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BallSpeed"
+label_settings = SubResource("LabelSettings_8qxd8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BallPower" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer/BallPower"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BallPower"
+label_settings = SubResource("LabelSettings_8qxd8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BrickCash" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
+
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer/BrickCash"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BrickCash"
+label_settings = SubResource("LabelSettings_8qxd8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer"]
 custom_minimum_size = Vector2(0, 600)
@@ -819,15 +884,51 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2/StageBonus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "StageBonus"
+label_settings = SubResource("LabelSettings_8qxd8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MaxBalls" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2/MaxBalls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MaxBalls"
+label_settings = SubResource("LabelSettings_8qxd8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="StageSkip" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
+
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer2/StageSkip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "StageSkip"
+label_settings = SubResource("LabelSettings_8qxd8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer"]
 custom_minimum_size = Vector2(0, 600)
@@ -839,15 +940,51 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3/GoldBrickChance"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GoldBrickChance"
+label_settings = SubResource("LabelSettings_8qxd8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="GoldBrickBonus" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3/GoldBrickBonus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GoldBrickBonus"
+label_settings = SubResource("LabelSettings_8qxd8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Laser" type="Button" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
+
+[node name="Label" type="Label" parent="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer3/Laser"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Laser"
+label_settings = SubResource("LabelSettings_8qxd8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Boosts" type="Panel" parent="FullScreen/ExtraMenu"]
 visible = false
@@ -926,12 +1063,6 @@ position = Vector2(547, 1960)
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/plusBall" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_plus_ball_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/Power" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_power_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall/Speed" to="FullScreen/ExtraMenu/Upgrades/Upgrades/VBoxContainer/BasicBall" method="_on_speed_pressed"]
-[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton1" to="FullScreen/ExtraMenu/Cards" method="_on_active_button_1_pressed"]
-[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton2" to="FullScreen/ExtraMenu/Cards" method="_on_active_button_2_pressed"]
-[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton3" to="FullScreen/ExtraMenu/Cards" method="_on_active_button_3_pressed"]
-[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton4" to="FullScreen/ExtraMenu/Cards" method="_on_active_button_4_pressed"]
-[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton5" to="FullScreen/ExtraMenu/Cards" method="_on_active_button_5_pressed"]
-[connection signal="pressed" from="FullScreen/ExtraMenu/Cards/ActiveCards/HBoxContainer/ActiveButton6" to="FullScreen/ExtraMenu/Cards" method="_on_active_button_6_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer/BallSpeed" to="FullScreen/ExtraMenu/Cards" method="_on_ball_speed_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer/BallPower" to="FullScreen/ExtraMenu/Cards" method="_on_ball_power_pressed"]
 [connection signal="pressed" from="FullScreen/ExtraMenu/Cards/CardsAvailable/VBoxContainer/HBoxContainer/BrickCash" to="FullScreen/ExtraMenu/Cards" method="_on_brick_cash_pressed"]
