@@ -107,7 +107,6 @@ func _on_gold_brick_bonus_pressed() -> void:
 func _on_laser_pressed() -> void:
 	checkForOpening(laserFunction)
 
-
 ## TODO Need to finish implementing the rest of the cards
 func ballSpeedFunction():
 	pass
