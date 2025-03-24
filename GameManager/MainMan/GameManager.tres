@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_q4res")
 _money = 0
-_crystal = 2
+_crystal = 0
 _level = 1
 _goldBonus = 1.1
 _normal_brick_chance = 0.95

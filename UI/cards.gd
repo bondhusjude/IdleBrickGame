@@ -1,6 +1,6 @@
 extends Panel
 @export var gameMan: GameManager
-@export var ball: Ball
+@export var basic_ball: Ball
 
 @onready var activebutton1 = $ActiveCards/HBoxContainer/ActiveButton1
 @onready var activebutton2 = $ActiveCards/HBoxContainer/ActiveButton2
@@ -42,7 +42,7 @@ func _process(_delta: float) -> void:
 					effect_name = parts[1]  # Extract function name
 			label.text = State.keys()[i.get("state")] + "\n" + effect_name
 		if not i.get("empty") and i.get("effect"):
-			i.get("effect").call()
+			i.get("effect").call(true)
 
 func unlockSlot(obj: Button):
 	for i in usable: 
@@ -59,6 +59,8 @@ func on_active_button_pressed(index: int) -> void:
 	if usable[index]["state"] == State.UNLOCKED:
 		usable[index]["state"] = State.UNLOCKED
 		usable[index]["empty"] = true
+		#set that function to call false so we dont have to call everyframe, then stop calling it entirely
+		usable[index]["effect"].call(false)
 		usable[index]["effect"] = null
 	else:
 		#index is a parrelle array to the index of the button that is pressed, 
@@ -107,30 +109,63 @@ func _on_gold_brick_bonus_pressed() -> void:
 func _on_laser_pressed() -> void:
 	checkForOpening(laserFunction)
 
+func ballSpeedFunction(active: bool):
+	if active:
+		if not basic_ball.getDoubleSpeedC():
+			basic_ball.setDoubleSpeedC(true)
+	else:
+		basic_ball.setDoubleSpeedC(false)
+
+func ballPowerFunction(active: bool):
+	if active:
+		if not basic_ball.getDoubleDamageC():
+			basic_ball.setDoubleDamageC(true)
+	else:
+		basic_ball.setDoubleDamageC(false)
+
+## Boost the value of all bricks
+func brickCashFunction(active: bool):
+	if active:
+		if not gameMan.getMoneyIncrease():
+			gameMan.setMoneyIncrease(true)
+	else:
+		gameMan.setMoneyIncrease(false)
+
+func stageBonusFunction(active: bool):
+	if active:
+		if not gameMan.getStageIncrease():
+			gameMan.setStageIncrease(true)
+	else:
+		gameMan.setStageIncrease(false)
+
+func maxBallsFunction(active: bool):
+	if active:
+		pass
+	else:
+		pass
+
+func stageSkipFunction(active: bool):
+	if active:
+		if not gameMan.getStageSkip():
+			gameMan.setStageSkip(true)
+	else:
+		gameMan.setStageSkip(false)
+
 ## TODO Need to finish implementing the rest of the cards
-func ballSpeedFunction():
-	pass
+func goldBrickChanceFunction(active: bool):
+	if active:
+		pass
+	else:
+		pass
 
-func ballPowerFunction():
-	pass
+func goldBrickBonusFunction(active: bool):
+	if active:
+		pass
+	else:
+		pass
 
-func brickCashFunction():
-	pass
-
-func stageBonusFunction():
-	pass
-
-func maxBallsFunction():
-	pass
-
-func stageSkipFunction():
-	pass
-
-func goldBrickChanceFunction():
-	pass
-
-func goldBrickBonusFunction():
-	pass
-
-func laserFunction():
-	pass
+func laserFunction(active: bool):
+	if active:
+		pass
+	else:
+		pass

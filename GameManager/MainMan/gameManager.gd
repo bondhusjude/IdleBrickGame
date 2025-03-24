@@ -8,6 +8,27 @@ class_name GameManager
 @export var _normal_brick_chance:float =  0.95
 @export var _gold_brick_chance:float =    0.0407
 @export var _crystal_brick_chance:float = 0.0003
+@export var _moneyIncreaseCards:bool = false
+@export var _stageIncreaseCards:bool = false
+@export var _stageSkipCards:bool = false
+
+func setStageSkip(value: bool):
+	_stageSkipCards = value
+
+func getStageSkip() -> bool:
+	return _stageSkipCards
+
+func setStageIncrease(value: bool):
+	_stageIncreaseCards = value
+
+func getStageIncrease() -> bool:
+	return _stageIncreaseCards
+
+func setMoneyIncrease(value: bool):
+	_moneyIncreaseCards = value
+
+func getMoneyIncrease() -> bool:
+	return _moneyIncreaseCards
 
 func setMoney(value: int):
 	_money = value
@@ -16,7 +37,10 @@ func getMoney() -> int:
 	return _money
 
 func addMoney(add: int):
-	_money += add
+	if _moneyIncreaseCards:
+		_money += add * 1.2
+	else:
+		_money += add
 
 func removeMoney(minus: int):
 	_money -= minus

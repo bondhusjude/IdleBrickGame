@@ -30,16 +30,38 @@ func spawnBall(newBall: String):
 func _on_brick_formation_man_end_level() -> void:
 	moveNextLevel()
 
+var calledOnce:bool = false
 func moveNextLevel():
-	# add 1 to level count
+	# Check if stage skip is enabled and the function hasn't been called yet
+	if gameMan.getStageSkip() and not calledOnce:
+		# There is a 5% chance to trigger special behavior
+		if randf() <= 0.05:
+			gameMan.addLevel()
+			# If stage increase is enabled, give the player money
+			if gameMan.getStageIncrease():
+				gameMan.addMoney(round(gameMan.getMoney() / 10))
+			# Mark that the function has been called to prevent further recursion
+			calledOnce = true
+			# Recursively call moveNextLevel() to ensure the level progresses
+			moveNextLevel()
+			return
+		else:
+			# If no special case triggered, just set calledOnce to true and proceed
+			calledOnce = true
+	# Normal level progression logic after special case or no special case
 	gameMan.addLevel()
-	for ball in BallMan.get_child_count():
-		var child = BallMan.get_child(ball)
+	# If stage increase is enabled, give the player money
+	if gameMan.getStageIncrease():
+		gameMan.addMoney(round(gameMan.getMoney() / 10))
+	# Reset positions of all balls
+	for ball in BallMan.get_children():
+		var child = ball
 		child.global_position = ballSpawn.global_position
-	#spawn new brick formatino under BrickFormationMan
-	# Wait for 0.1 seconds (100 milliseconds)
+	# Wait for 0.1 seconds (100 milliseconds) before spawning new scene
 	await get_tree().create_timer(0.1).timeout
+	# Load a new random scene from the folder
 	loadScene(pathOfFolder, randi_range(0, scene_count - 1))
+	calledOnce = false
 
 # Load the scene dynamically
 func loadScene(path: String, numberChoosen: int):
