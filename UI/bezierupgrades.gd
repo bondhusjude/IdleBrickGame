@@ -36,7 +36,7 @@ func _on_plus_ball_pressed() -> void:
 	if gameManR.getMoney() >= cost:
 		gameManR.removeMoney(cost)
 		ball_upgrades += 1
-		gameMan.spawnBall("res://Ball/BezierBall/bezier_ball.tscn")
+		gameMan.spawnBall("res://Ball/BasicBall/basic_ball.tscn")
 		set_text(plusLabel, ball_upgrades, calculate_cost(base_cost_ball, ball_upgrades))
 		#print("New Ball Purchased! Next cost: ", calculate_cost(base_cost_ball, ball_upgrades))
 	else:

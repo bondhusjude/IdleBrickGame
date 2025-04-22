@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvvuem7f4hba"]
+
+[ext_resource type="Script" uid="uid://ddg1mr8o1un6o" path="res://Ball/BezierBall/BezierBall.gd" id="1_fdhc4"]
+[ext_resource type="Resource" uid="uid://b8r2t56jdc5ej" path="res://Ball/BezierBall/BezierBall.tres" id="2_qot0a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bkks1"]
+radius = 25.0
+
+[sub_resource type="Gradient" id="Gradient_qot0a"]
+offsets = PackedFloat32Array(0, 0.28169)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j14ci"]
+gradient = SubResource("Gradient_qot0a")
+fill = 1
+fill_from = Vector2(0.465, 0.573)
+repeat = 1
+
+[sub_resource type="Gradient" id="Gradient_j14ci"]
+colors = PackedColorArray(0.889958, 0, 0.08231, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_asbmy"]
+colors = PackedColorArray(0.513233, 0.513233, 0.513233, 1, 0.340339, 0.340339, 0.340339, 1)
+
+[node name="BezierBall" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_fdhc4")
+ball = ExtResource("2_qot0a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bkks1")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+rotation = 0.0162628
+texture = SubResource("GradientTexture2D_j14ci")
+texture_offset = Vector2(31.205, 33.395)
+polygon = PackedVector2Array(0, -25, 17, -18, 25, -1, 19, 17, 0, 25, -19, 18, -26, 0, -18, -18)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -10
+position = Vector2(-1, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 3.0
+scale_amount_min = 12.0
+scale_amount_max = 12.0
+
+[node name="explode" type="CPUParticles2D" parent="."]
+z_index = -10
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 141.31
+initial_velocity_max = 343.33
+angular_velocity_min = -581.81
+angular_velocity_max = 480.0
+scale_amount_min = 12.0
+scale_amount_max = 12.0
+color_ramp = SubResource("Gradient_j14ci")
+color_initial_ramp = SubResource("Gradient_asbmy")
